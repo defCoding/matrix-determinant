@@ -32,17 +32,18 @@ def get_submatrix(matrix, row, col):
     submatrix = [row[:col] + row[col + 1:] for row in matrix]
     return submatrix
 
-done = False
-matrix_str = []
+if __name__ == "__main__":
+    done = False
+    matrix_str = []
 
-print("Give me a square matrix to check if it is invertible. Use newline to divide the rows and space to divide the columns. Type q when you are done.\n")
-while not done:
-    user_input = input()
-    if user_input.lower() == 'q':
-        done = True
-    else:
-        matrix_str.append(user_input)
+    print("Give me a square matrix to check if it is invertible. Use newline to divide the rows and space to divide the columns. Type q when you are done.")
+    while not done:
+        user_input = input()
+        if user_input.lower() == 'q':
+            done = True
+        else:
+            matrix_str.append(user_input)
 
-matrix = list(map(lambda s : list(map(int, s.split(" "))), matrix_str))
+    matrix = list(map(lambda s : list(map(int, s.split(" "))), matrix_str))
 
-print(f'Determinant: {get_determinant(matrix)}')
+    print(f'Determinant: {get_determinant(matrix)}')
